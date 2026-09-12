@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/*
+  Theme tokens — Reynolds Rebuild palette.
+  These map to Tailwind utilities automatically (Tailwind v4 "CSS-first config"):
+  --color-primary  -> bg-primary, text-primary, border-primary, etc.
+  --color-accent   -> bg-accent, text-accent, ...
+  Never hand-write a hex value inside a component — add or change a token here instead.
+  This is what the assignment's "reusable themes/colors" checklist item is checking for.
+*/
+@theme {
+  --color-primary: #3f5449; /* Juniper — nav, headings, primary buttons */
+  --color-primary-soft: #e4eae1; /* tint background for primary chips/badges */
+  --color-primary-strong: #263229; /* hover/active state for primary buttons */
+
+  --color-secondary: #dcd3c5; /* Stone — section backgrounds, dividers */
+  --color-secondary-dark: #b9ac95;
+
+  --color-accent: #c97b63; /* Clay — CTAs and small accents only, use sparingly */
+  --color-accent-strong: #a85f49;
+
+  --color-base: #faf8f3; /* page background */
+  --color-surface: #ffffff; /* cards */
+  --color-ink: #23261f; /* body text */
+  --color-ink-muted: #5b5f52; /* secondary text */
+  --color-border: #e4ded0;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-jakarta);
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Georgia, serif;
+  text-wrap: balance;
+}
