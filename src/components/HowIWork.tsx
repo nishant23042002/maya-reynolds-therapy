@@ -73,7 +73,7 @@ export default function HowIWork() {
             </div>
 
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg md:hidden">
-              <Image src={howIWork.image.src} alt={howIWork.image.alt} fill sizes="100vw" className="object-cover" />
+              <Image src={howIWork.image.src} alt={howIWork.image.alt} fill sizes="(max-width: 767px) 100vw, 0px" className="object-cover" />
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 md:gap-x-5">

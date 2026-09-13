@@ -28,6 +28,16 @@ import { hero } from "@/lib/content";
  * side inset (matches the original's own ratio), the photo is full-bleed
  * both edges like the desktop one, which is why the inset lives on the text
  * block itself rather than a shared wrapper around both.
+ *
+ * Neither photo has `priority` — two separate `<Image>`s exist for the
+ * same file (desktop bleed + mobile full-width), and only one is ever
+ * actually shown at a given viewport (the other is `hidden`/`md:hidden`).
+ * `priority` on both meant Next.js preloaded both, and whichever one CSS
+ * hid always logged a real, if harmless, "preloaded but not used"
+ * browser warning — unavoidable with two art-directed variants of one
+ * image, since the unused side's preload has already fired by the time
+ * CSS can hide it. Dropping `priority` from both trades a slightly later
+ * LCP for a clean console; worth it for a site this size.
  */
 export default function Hero() {
   return (
@@ -43,7 +53,6 @@ export default function Hero() {
               fill
               sizes="35vw"
               className="object-cover"
-              priority
             />
           </div>
 
@@ -69,7 +78,7 @@ export default function Hero() {
         {/* Mobile photo — full-bleed both edges, same as desktop */}
         <div className="mt-10 md:hidden">
           <div className="relative h-[360px] w-full">
-            <Image src={hero.image.src} alt={hero.image.alt} fill sizes="100vw" className="object-cover" priority />
+            <Image src={hero.image.src} alt={hero.image.alt} fill sizes="(max-width: 767px) 100vw, 0px" className="object-cover" />
           </div>
         </div>
       </div>

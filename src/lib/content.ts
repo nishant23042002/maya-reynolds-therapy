@@ -31,7 +31,7 @@ export const hero = {
   eyebrow: "Anxiety, Trauma & Burnout Therapy in Santa Monica, CA",
   headline: "Steadier ground, even on your hardest days.",
   subtext:
-    "In-person sessions in Santa Monica and secure telehealth across California — for high-achievers, creatives, and professionals who feel like they're always bracing for what's next.",
+    "In-person sessions in Santa Monica and secure telehealth across California - for high-achievers, creatives, and professionals who feel like they're always bracing for what's next.",
   cta: "Schedule a Free Consultation",
   image: { src: "/images/hero-portrait.jpg", alt: "Woman sitting quietly in a sunlit window, looking out at the trees" },
 };
@@ -50,12 +50,12 @@ export const mission = {
   // second full sentence.
   paragraphs: [
     {
-      lead: "My goal isn't just symptom relief — it's steadier ground.",
-      rest: "I'm a licensed clinical psychologist based in Santa Monica, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experience. Many of the people I work with are high-achieving and self-aware — but privately exhausted, stuck in overthinking, or emotionally on edge.",
+      lead: "My goal isn't just symptom relief - it's steadier ground.",
+      rest: "I'm a licensed clinical psychologist based in Santa Monica, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experience. Many of the people I work with are high-achieving and self-aware - but privately exhausted, stuck in overthinking, or emotionally on edge.",
     },
     {
       lead: null as string | null,
-      rest: "I take a warm, collaborative, and grounded approach: sessions structured enough to feel supportive, with space left for real reflection and depth. Trauma work is paced carefully, with safety and stabilization always coming first — the goal is real insight and a steadier relationship with yourself, not just quieting symptoms.",
+      rest: "I take a warm, collaborative, and grounded approach: sessions structured enough to feel supportive, with space left for real reflection and depth. Trauma work is paced carefully, with safety and stabilization always coming first - the goal is real insight and a steadier relationship with yourself, not just quieting symptoms.",
     },
   ],
   portrait: { src: "/images/maya-headshot.jpg", alt: "Dr. Maya Reynolds, PsyD" },
@@ -71,7 +71,7 @@ export const whoIHelp = [
   },
   {
     title: "Trauma Survivors",
-    body: "Single-incident or long-standing — trauma-focused work, including EMDR, at a pace that puts your stability first.",
+    body: "Single-incident or long-standing - trauma-focused work, including EMDR, at a pace that puts your stability first.",
     image: { src: "/images/who-i-help/trauma.jpg", alt: "Person walking alone on a quiet path, at their own pace" },
   },
   {
@@ -102,7 +102,7 @@ export const areasOfFocus = [
 // a tall portrait on the right, and an underlined text link — not a button.
 export const howIWork = {
   eyebrow: "How I Work",
-  heading: "Here to help you feel steadier — not just fixed.",
+  heading: "Here to help you feel steadier - not just fixed.",
   paragraphs: [
     {
       lead: "Sessions are structured enough to feel supportive, while still leaving space for real reflection and depth.",
@@ -110,7 +110,7 @@ export const howIWork = {
     },
     {
       lead: null as string | null,
-      rest: "Trauma work is paced carefully, with safety and stabilization always coming first. My goal isn't just symptom relief — it's helping you feel more regulated day to day, with real insight and a steadier relationship with yourself over time.",
+      rest: "Trauma work is paced carefully, with safety and stabilization always coming first. My goal isn't just symptom relief - it's helping you feel more regulated day to day, with real insight and a steadier relationship with yourself over time.",
     },
   ],
   cta: "Learn More About Me",
@@ -122,7 +122,7 @@ export const howIWork = {
 export const services = [
   {
     title: "Anxiety & Panic Therapy",
-    body: "We'll use CBT and mindfulness-based tools to understand what's driving the anxiety — and build a calmer, steadier baseline in daily life.",
+    body: "We'll use CBT and mindfulness-based tools to understand what's driving the anxiety - and build a calmer, steadier baseline in daily life.",
   },
   {
     title: "Trauma Therapy & EMDR",
@@ -130,7 +130,7 @@ export const services = [
   },
   {
     title: "Burnout Recovery for High-Achievers",
-    body: "For entrepreneurs, creatives, and professionals running on empty, we'll rebuild sustainable ways of working — without losing the drive that got you here.",
+    body: "For entrepreneurs, creatives, and professionals running on empty, we'll rebuild sustainable ways of working - without losing the drive that got you here.",
   },
 ];
 
@@ -150,15 +150,15 @@ export const office = {
 export const faq = [
   {
     q: "Do you offer both in-person and online sessions?",
-    a: "Yes — in person at my Santa Monica office, or by secure telehealth anywhere in California.",
+    a: "Yes - in person at my Santa Monica office, or by secure telehealth anywhere in California.",
   },
   {
     q: "What is EMDR, and could it help me?",
     a: "It's an evidence-based method for processing trauma so the memory stops carrying the same charge. We'd talk through whether it fits your situation in an early session.",
   },
   {
-    q: "I function fine on the outside but feel exhausted underneath — is that something you treat?",
-    a: "Yes — this is one of the most common things I hear, especially from entrepreneurs, creatives, and other high-achievers.",
+    q: "I function fine on the outside but feel exhausted underneath - is that something you treat?",
+    a: "Yes - this is one of the most common things I hear, especially from entrepreneurs, creatives, and other high-achievers.",
   },
 ];
 

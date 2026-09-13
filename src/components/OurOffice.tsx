@@ -61,7 +61,7 @@ export default function OurOffice() {
         <div className="mt-10 flex flex-col gap-5 md:hidden">
           {office.images.map((img) => (
             <div key={img.src} className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
-              <Image src={img.src} alt={img.alt} fill sizes="100vw" className="object-cover" />
+              <Image src={img.src} alt={img.alt} fill sizes="(max-width: 767px) 100vw, 0px" className="object-cover" />
             </div>
           ))}
         </div>

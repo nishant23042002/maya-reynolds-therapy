@@ -103,7 +103,7 @@ export default function MissionIntro() {
                 src={mission.portrait.src}
                 alt={mission.portrait.alt}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 767px) 100vw, 0px"
                 className="object-cover object-top"
               />
             </div>
