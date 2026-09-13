@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { hero } from "@/lib/content";
 
 /**
@@ -9,28 +10,39 @@ import { hero } from "@/lib/content";
  * wants: "SEO optimized ... natural keyword integration," not a keyword list
  * pretending to be a headline.
  *
- * TODO(you): swap the background for a real image once you've sourced one
- * (Reynolds Rebuild § Image sourcing — muted, warm-light, no literal
- * "therapy office" stock cliché) and confirm this matches the original's
- * hero structure: full-bleed background, eyebrow, H1, subtext, single CTA.
+ * Layout: original has a text column beside real photography, not a plain
+ * color field — `priority` on the image since it's the largest above-fold
+ * element (LCP).
  */
 export default function Hero() {
   return (
     <section className="bg-primary-soft">
-      <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24 md:py-32">
-        <p className="text-xs font-semibold uppercase tracking-wide text-primary">
-          {hero.eyebrow}
-        </p>
-        <h1 className="max-w-2xl text-4xl font-semibold text-ink md:text-6xl">
-          {hero.headline}
-        </h1>
-        <p className="max-w-xl text-lg text-ink-muted">{hero.subtext}</p>
-        <a
-          href="#book"
-          className="rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-accent-strong"
-        >
-          {hero.cta}
-        </a>
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:gap-16 md:py-28">
+        <div className="flex flex-col items-start gap-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+            {hero.eyebrow}
+          </p>
+          <h1 className="text-4xl font-semibold text-ink md:text-5xl">
+            {hero.headline}
+          </h1>
+          <p className="max-w-xl text-lg text-ink-muted">{hero.subtext}</p>
+          <a
+            href="#book"
+            className="rounded-full bg-accent-strong px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-accent"
+          >
+            {hero.cta}
+          </a>
+        </div>
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg md:aspect-[3/4]">
+          <Image
+            src={hero.image.src}
+            alt={hero.image.alt}
+            fill
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

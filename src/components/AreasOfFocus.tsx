@@ -1,24 +1,33 @@
 import { areasOfFocus } from "@/lib/content";
 
 /**
- * STUB — wireframe only.
- * Original section: "Our areas of expertise" — a wrapping row of pill/tag
- * elements, centered, generous letter-spacing, uppercase. Match its spacing
- * between pills and how it wraps at mobile width.
+ * Real layout, verified via devtools on conejovalleycounseling.com's "Our
+ * areas of expertise" section: heading top-left (not centered), a two-column
+ * list of plain uppercase items to the right — each row divided by a
+ * bottom border, not the pill/badge tags a first guess would reach for.
  */
 export default function AreasOfFocus() {
+  const mid = Math.ceil(areasOfFocus.length / 2);
+  const columns = [areasOfFocus.slice(0, mid), areasOfFocus.slice(mid)];
+
   return (
-    <section className="border border-dashed border-secondary-dark/60 bg-primary-soft">
-      <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-        <h2 className="mb-8 text-2xl font-semibold text-ink">Areas of focus</h2>
-        <div className="flex flex-wrap justify-center gap-3">
-          {areasOfFocus.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary"
-            >
-              {tag}
-            </span>
+    <section className="bg-base">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[minmax(0,1fr)_2fr] md:items-start md:gap-16 md:py-28">
+        <h2 className="font-display text-3xl font-light leading-tight text-ink md:text-4xl">
+          Our areas of <span className="italic text-primary">focus</span>
+        </h2>
+        <div className="grid gap-x-10 sm:grid-cols-2">
+          {columns.map((col, i) => (
+            <ul key={i}>
+              {col.map((tag) => (
+                <li
+                  key={tag}
+                  className="border-b border-border py-4 text-xs font-semibold uppercase tracking-wide text-ink-muted"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
           ))}
         </div>
       </div>

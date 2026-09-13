@@ -26,7 +26,13 @@ export default function OurOffice() {
           <div className="grid grid-cols-2 gap-4">
             {office.images.map((img) => (
               <div key={img.src} className="relative aspect-[4/5] overflow-hidden rounded-lg">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(min-width: 768px) 22vw, 45vw"
+                  className="object-cover"
+                />
               </div>
             ))}
           </div>

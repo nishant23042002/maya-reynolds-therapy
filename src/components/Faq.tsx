@@ -2,16 +2,17 @@ import { faq } from "@/lib/content";
 
 /**
  * Required by the copy checklist even though the original homepage has no
- * on-page FAQ (see Reynolds Rebuild § 4 for why). Native <details> keeps
- * this accessible with zero extra dependencies — a reasonable call for a
- * homepage-only assignment; swap for a Radix/shadcn accordion later if you
- * want the animation.
+ * on-page FAQ — its nav links to a separate FAQ page, so there's no layout
+ * to clone here. Native <details> keeps this accessible with zero extra
+ * dependencies, a reasonable call for a homepage-only assignment.
  */
 export default function Faq() {
   return (
-    <section id="faq" className="border border-dashed border-secondary-dark/60 bg-surface">
-      <div className="mx-auto max-w-3xl px-6 py-16">
-        <h2 className="mb-8 text-2xl font-semibold text-ink">Frequently asked questions</h2>
+    <section id="faq" className="bg-surface">
+      <div className="mx-auto max-w-3xl px-6 py-20 md:py-28">
+        <h2 className="mb-10 font-display text-3xl font-light text-ink md:text-4xl">
+          Frequently asked questions
+        </h2>
         <div className="divide-y divide-border">
           {faq.map((item) => (
             <details key={item.q} className="group py-4">

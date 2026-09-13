@@ -33,13 +33,26 @@ export const hero = {
   subtext:
     "In-person sessions in Santa Monica and secure telehealth across California — for high-achievers, creatives, and professionals who feel like they're always bracing for what's next.",
   cta: "Schedule a Free Consultation",
+  image: { src: "/images/hero.jpg", alt: "Warm, sunlit interior with calm, neutral tones" },
 };
 
+// Structure mirrors the original's mission/about section, verified via
+// devtools on conejovalleycounseling.com: one large serif intro line above
+// two paragraph columns, each starting with a bold lead sentence.
 export const mission = {
+  eyebrow: "About Dr. Reynolds",
+  introLine: "You don't have to keep bracing for what's next.",
   paragraphs: [
-    "I'm a licensed clinical psychologist based in Santa Monica, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experience. Many of the people I work with are high-achieving and self-aware — but privately exhausted, stuck in overthinking, or emotionally on edge.",
-    "My approach blends CBT, EMDR, mindfulness, and body-oriented work in a style that's warm and collaborative: structured enough to feel supportive, spacious enough for real reflection.",
+    {
+      lead: "I'm a licensed clinical psychologist based in Santa Monica, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experience.",
+      rest: "Many of the people I work with are high-achieving and self-aware — but privately exhausted, stuck in overthinking, or emotionally on edge.",
+    },
+    {
+      lead: null as string | null,
+      rest: "I take a warm, collaborative, and grounded approach: sessions structured enough to feel supportive, with space left for real reflection and depth.",
+    },
   ],
+  portrait: { src: "/images/maya-headshot.jpg", alt: "Dr. Maya Reynolds, PsyD" },
 };
 
 // TODO(you): Maya's profile only describes adult clients — do not reintroduce
@@ -48,14 +61,17 @@ export const whoIHelp = [
   {
     title: "Anxious & Overwhelmed",
     body: "For the constant hum of worry, the racing heart before a meeting, the nights sleep won't come easily.",
+    image: { src: "/images/who-i-help/anxious.jpg", alt: "Person sitting quietly by a window, lost in thought" },
   },
   {
     title: "Trauma Survivors",
     body: "Single-incident or long-standing — trauma-focused work, including EMDR, at a pace that puts your stability first.",
+    image: { src: "/images/who-i-help/trauma.jpg", alt: "Person walking alone on a quiet path, at their own pace" },
   },
   {
     title: "Burned-Out High-Achievers",
     body: "Entrepreneurs, creatives, and professionals stretched thin by perfectionism and pressure.",
+    image: { src: "/images/who-i-help/burnout.jpg", alt: "Person pausing for a quiet moment at a desk with a cup of coffee" },
   },
 ];
 
@@ -74,10 +90,25 @@ export const areasOfFocus = [
   "…and more",
 ];
 
+// Structure mirrors the original's "How We Work" section (devtools-verified):
+// full-width tinted band, small eyebrow, H2, two-column paragraph text
+// (first column leads with a bold sentence, same pattern as `mission`),
+// a tall portrait on the right, and an underlined text link — not a button.
 export const howIWork = {
-  heading: "How I work",
-  body: "Sessions are structured enough to feel supportive, while still leaving space for reflection and depth. Trauma work is paced carefully, with an emphasis on safety and stabilization before anything else. My goal isn't just symptom relief — it's helping you build insight, resilience, and a steadier relationship with yourself.",
+  eyebrow: "How I Work",
+  heading: "Here to help you feel steadier — not just fixed.",
+  paragraphs: [
+    {
+      lead: "Sessions are structured enough to feel supportive, while still leaving space for real reflection and depth.",
+      rest: "I integrate CBT, EMDR, mindfulness-based practices, and body-oriented techniques, working with both the emotional and physiological sides of what you're experiencing.",
+    },
+    {
+      lead: null as string | null,
+      rest: "Trauma work is paced carefully, with safety and stabilization always coming first. My goal isn't just symptom relief — it's helping you feel more regulated day to day, with real insight and a steadier relationship with yourself over time.",
+    },
+  ],
   cta: "Learn More About Me",
+  image: { src: "/images/how-i-work.jpg", alt: "A calm, sunlit corner with comfortable seating" },
 };
 
 // Exactly three — the assignment checklist asks for three services, not the
@@ -125,8 +156,14 @@ export const faq = [
   },
 ];
 
+// Structure mirrors the original's final CTA (devtools-verified): tinted
+// band, small eyebrow, H2, supporting paragraph, and an outlined button —
+// the only outlined (not solid) button on the original homepage — plus a
+// supporting photo instead of a plain color background.
 export const ctaBanner = {
+  eyebrow: "Schedule a Consultation",
   heading: "Find steadier ground.",
   body: "Click below to schedule a free 15-minute consultation.",
   cta: "Book Now",
+  image: { src: "/images/cta-support.jpg", alt: "Calm, warm-toned still life" },
 };

@@ -10,9 +10,9 @@ import Faq from "@/components/Faq";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
-// Section order matches the original homepage (Reynolds Rebuild § 4),
-// with "Our Office" and "Faq" inserted as the two additions Part 2/3 call
-// for. Don't reorder sections without re-checking that table.
+// Section order matches the original homepage (devtools-verified), with
+// "Our Office" and "Faq" inserted as the two additions Part 2/3 call for.
+// Don't reorder sections without re-checking against the live reference site.
 export default function Home() {
   return (
     <>
