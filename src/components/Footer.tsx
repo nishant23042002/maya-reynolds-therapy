@@ -3,7 +3,7 @@ import { nav, services, site } from "@/lib/content";
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="flex flex-col gap-12 px-6 py-16 md:ml-[5vmax] md:mr-[5vmax] md:grid md:grid-cols-[37.4vmax_14.9vmax_18.8vmax_1fr] md:gap-0 md:px-0 md:py-[7vmax]">
+      <div className="flex flex-col gap-12 px-6 py-16 md:ml-[min(5vmax,5vw)] md:mr-[min(5vmax,5vw)] md:grid md:grid-cols-[min(37.4vmax,37.4vw)_min(14.9vmax,14.9vw)_min(18.8vmax,18.8vw)_minmax(0,1fr)] md:gap-0 md:px-0 md:py-[7vmax]">
         <div>
           <p className="font-display text-3xl font-semibold text-ink md:text-4xl">{site.name}</p>
           <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-primary">
@@ -47,7 +47,7 @@ export default function Footer() {
           <p className="mt-6 text-[15px] text-primary">{site.address}</p>
           <a
             href={`mailto:${site.email}`}
-            className="mt-[7px] block text-[15px] text-primary transition-colors hover:text-primary-strong"
+            className="mt-[7px] block break-words text-[15px] text-primary transition-colors hover:text-primary-strong"
           >
             {site.email}
           </a>
@@ -58,7 +58,7 @@ export default function Footer() {
       </div>
 
       <div className="bg-primary px-6 py-[9px] md:px-0">
-        <p className="md:ml-[5vmax] text-[15px] text-white/80">
+        <p className="md:ml-[min(5vmax,5vw)] text-[15px] text-white/80">
           Terms | Privacy Policy | © {new Date().getFullYear()} {site.name}
         </p>
       </div>

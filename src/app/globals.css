@@ -21,6 +21,10 @@
   --font-sans: var(--font-jakarta);
 }
 
+html {
+  scroll-padding-top: 115px;
+}
+
 body {
   background: var(--color-base);
   color: var(--color-ink);

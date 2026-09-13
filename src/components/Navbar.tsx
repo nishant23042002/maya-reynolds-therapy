@@ -75,6 +75,7 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
+                    onClick={() => setMenuOpen(false)}
                     className="py-[19px] text-[32px] uppercase leading-none tracking-[0.03em] text-ink"
                   >
                     {link.label}
@@ -83,6 +84,7 @@ export default function Navbar() {
               </nav>
               <a
                 href="#book"
+                onClick={() => setMenuOpen(false)}
                 className="mt-8 inline-block rounded-full border border-primary px-[19.5px] py-[15px] text-xs uppercase tracking-widest text-primary transition-colors hover:bg-primary hover:text-white"
               >
                 {nav.cta}

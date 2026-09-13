@@ -6,7 +6,7 @@ export default function MissionIntro() {
     <section id="about" className="bg-surface">
       <div className="px-6 py-16 md:flex md:min-h-[calc(100vh-115px)] md:flex-col md:justify-center md:px-0 md:py-[7vmax]">
         <div className="md:relative md:flex md:min-h-[40vmax] md:items-center">
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[30.1vmax] md:block">
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[min(30.1vmax,30.1vw)] md:block">
             <Image
               src={mission.portrait.src}
               alt={mission.portrait.alt}
@@ -16,8 +16,8 @@ export default function MissionIntro() {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:ml-[8.75vmax] md:mr-[33vmax] md:grid-cols-2 md:gap-x-5 md:gap-y-[3.3vmax]">
-            <h2 className="order-1 max-w-md font-display text-3xl font-light leading-tight text-ink md:order-none md:col-span-2 md:max-w-[47.7vmax] md:text-4xl">
+          <div className="grid grid-cols-1 gap-8 md:ml-[min(8.75vmax,8.75vw)] md:mr-[min(33vmax,33vw)] md:grid-cols-2 md:gap-x-5 md:gap-y-[3.3vmax]">
+            <h2 className="order-1 max-w-md font-display text-3xl font-light leading-tight text-ink md:order-none md:col-span-2 md:max-w-[min(47.7vmax,47.7vw)] md:text-4xl">
               {mission.introLine}
             </h2>
             {mission.paragraphs.map((p, i) => (

@@ -43,7 +43,7 @@ export default function Faq() {
   return (
     <section id="faq" className="bg-surface">
       <div className="flex flex-col px-6 py-20 md:h-[calc(100vh-115px)] md:flex-col md:justify-center md:px-0 md:py-0">
-        <div className="mx-auto w-full md:max-w-[50vmax]">
+        <div className="mx-auto w-full md:max-w-[min(50vmax,50vw)]">
           <h2 className="mb-10 text-center font-display text-3xl font-light text-ink md:mb-16 md:text-4xl">
             Frequently asked <span className="italic text-primary">questions</span>
           </h2>

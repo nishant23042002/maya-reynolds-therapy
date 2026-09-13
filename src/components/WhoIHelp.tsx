@@ -5,10 +5,10 @@ export default function WhoIHelp() {
   return (
     <section className="bg-secondary/60">
       <div className="flex flex-col gap-8 px-6 py-16 md:h-[calc(100vh-115px)] md:gap-[3.3vmax] md:px-0 md:py-[7vmax]">
-        <h2 className="shrink-0 font-display text-3xl font-light text-ink md:ml-[5vmax] md:text-4xl">
+        <h2 className="shrink-0 font-display text-3xl font-light text-ink md:ml-[min(5vmax,5vw)] md:text-4xl">
           Who I <span className="italic text-primary">help</span>
         </h2>
-        <div className="grid min-h-0 gap-10 md:ml-[16.3vmax] md:mr-[5vmax] md:flex-1 md:grid-flow-col md:grid-cols-3 md:grid-rows-[1fr_auto] md:gap-x-5 md:gap-y-[3.3vmax]">
+        <div className="grid min-h-0 gap-10 md:ml-[min(16.3vmax,16.3vw)] md:mr-[min(5vmax,5vw)] md:flex-1 md:grid-flow-col md:grid-cols-3 md:grid-rows-[1fr_auto] md:gap-x-5 md:gap-y-[3.3vmax]">
           {whoIHelp.map((item) => (
             <div key={item.title} className="flex flex-col gap-6 md:contents">
               <div className="relative aspect-[6/7] w-full min-h-0 overflow-hidden rounded-lg md:aspect-auto">

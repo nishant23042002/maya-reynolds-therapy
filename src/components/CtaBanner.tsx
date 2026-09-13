@@ -6,7 +6,7 @@ export default function CtaBanner() {
     <section id="book" className="bg-primary-soft">
       <div className="px-6 py-16 md:min-h-[calc(100vh-115px)] md:flex md:flex-col md:justify-center md:px-0 md:py-[7vmax]">
         <div className="md:relative md:flex md:min-h-[45vmax] md:items-center">
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[34vmax] md:block">
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[min(34vmax,34vw)] md:block">
             <Image
               src={ctaBanner.image.src}
               alt={ctaBanner.image.alt}
@@ -16,7 +16,7 @@ export default function CtaBanner() {
             />
           </div>
 
-          <div className="flex flex-col items-start gap-4 md:ml-[8.75vmax] md:mr-[40vmax]">
+          <div className="flex flex-col items-start gap-4 md:ml-[min(8.75vmax,8.75vw)] md:mr-[min(40vmax,40vw)]">
             <p className="text-xs font-semibold uppercase tracking-wide text-primary">
               {ctaBanner.eyebrow}
             </p>

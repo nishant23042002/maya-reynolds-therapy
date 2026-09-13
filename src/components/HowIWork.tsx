@@ -6,7 +6,7 @@ export default function HowIWork() {
     <section className="bg-primary-soft">
       <div className="px-6 py-16 md:min-h-[calc(100vh-115px)] md:flex md:flex-col md:justify-center md:px-0 md:py-[7vmax]">
         <div className="md:relative">
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[23.5vmax] md:block">
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[min(23.5vmax,23.5vw)] md:block">
             <Image
               src={howIWork.image.src}
               alt={howIWork.image.alt}
@@ -16,7 +16,7 @@ export default function HowIWork() {
             />
           </div>
 
-          <div className="flex flex-col gap-8 md:ml-[8.75vmax] md:mr-[27vmax]">
+          <div className="flex flex-col gap-8 md:ml-[min(8.75vmax,8.75vw)] md:mr-[min(27vmax,27vw)]">
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-primary">
                 {howIWork.eyebrow}
