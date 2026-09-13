@@ -33,7 +33,7 @@ export const hero = {
   subtext:
     "In-person sessions in Santa Monica and secure telehealth across California — for high-achievers, creatives, and professionals who feel like they're always bracing for what's next.",
   cta: "Schedule a Free Consultation",
-  image: { src: "/images/hero.jpg", alt: "Warm, sunlit interior with calm, neutral tones" },
+  image: { src: "/images/hero-portrait.jpg", alt: "Woman sitting quietly in a sunlit window, looking out at the trees" },
 };
 
 // Structure mirrors the original's mission/about section, verified via
