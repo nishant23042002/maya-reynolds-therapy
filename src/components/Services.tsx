@@ -10,7 +10,7 @@ import { services } from "@/lib/content";
  */
 export default function Services() {
   return (
-    <section id="services" className="bg-base">
+    <section id="services" className="bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <h2 className="mb-12 font-display text-3xl font-light text-ink md:mb-16 md:text-4xl">
           My <span className="italic text-primary">specialties</span>

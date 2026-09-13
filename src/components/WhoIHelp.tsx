@@ -58,7 +58,7 @@ import { whoIHelp } from "@/lib/content";
  */
 export default function WhoIHelp() {
   return (
-    <section className="bg-surface">
+    <section className="bg-secondary/60">
       <div className="flex flex-col gap-8 px-6 py-16 md:h-[calc(100vh-115px)] md:gap-[3.3vmax] md:px-0 md:py-[7vmax]">
         <h2 className="shrink-0 font-display text-3xl font-light text-ink md:ml-[5vmax] md:text-4xl">
           Who I <span className="italic text-primary">help</span>

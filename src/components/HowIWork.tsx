@@ -9,7 +9,7 @@ import { howIWork } from "@/lib/content";
  */
 export default function HowIWork() {
   return (
-    <section className="bg-secondary/60">
+    <section className="bg-primary-soft">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2 md:items-start md:gap-14 md:py-28">
         <div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-primary">

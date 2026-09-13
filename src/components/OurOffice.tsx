@@ -13,7 +13,7 @@ import { office, site } from "@/lib/content";
  */
 export default function OurOffice() {
   return (
-    <section id="office" className="bg-primary-soft">
+    <section id="office" className="bg-secondary/60">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div>

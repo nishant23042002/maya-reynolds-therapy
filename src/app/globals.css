@@ -35,10 +35,12 @@ body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display), Georgia, serif;
-  text-wrap: balance;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), Georgia, serif;
+    text-wrap: balance;
+  }
 }

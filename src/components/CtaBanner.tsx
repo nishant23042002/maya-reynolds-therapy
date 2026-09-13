@@ -11,7 +11,7 @@ import { ctaBanner } from "@/lib/content";
  */
 export default function CtaBanner() {
   return (
-    <section id="book" className="bg-secondary/60">
+    <section id="book" className="bg-primary-soft">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:gap-16 md:py-28">
         <div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-primary">

@@ -57,7 +57,7 @@ import { mission } from "@/lib/content";
  */
 export default function MissionIntro() {
   return (
-    <section id="about" className="bg-base">
+    <section id="about" className="bg-surface">
       <div className="px-6 py-16 md:flex md:min-h-[calc(100vh-115px)] md:flex-col md:justify-center md:px-0 md:py-[7vmax]">
         <div className="md:relative md:flex md:min-h-[40vmax] md:items-center">
           {/* Portrait — desktop only, bled to the right edge, stretches to
