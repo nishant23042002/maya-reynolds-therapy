@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-// Display face for headings — variable font, used with restraint.
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -10,7 +9,6 @@ const fraunces = Fraunces({
   axes: ["opsz"],
 });
 
-// Body face — deliberately not Inter, see Reynolds Rebuild § Theme & type.
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],

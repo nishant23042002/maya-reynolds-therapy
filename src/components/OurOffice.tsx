@@ -1,29 +1,6 @@
 import Image from "next/image";
 import { office, site } from "@/lib/content";
 
-/**
- * The one section with no original to clone — it doesn't exist on
- * conejovalleycounseling.com at all (added for Part 3's checklist). Given
- * creative latitude here rather than a reference to measure, but kept on
- * the same fluid-vmax full-bleed system every other section uses, so it
- * doesn't read as a different site bolted on: `md:min-h-[calc(100vh-115px)]`
- * viewport fill, `8.75vmax` left inset, a photo bleeding to the section's
- * own edge.
- *
- * Both office photos are native 4:3 landscape (checked their actual pixel
- * dimensions rather than guessing) — stretching one into a tall, narrow
- * portrait bleed like Hero/MissionIntro's headshots would crop away most
- * of the room. Instead: one photo bleeds to the right edge at a height
- * that keeps it close to its own 4:3 crop (`md:min-h-[28vmax]` on the
- * shared wrapper, chosen so the bleed photo's 36vmax width divided by that
- * height lands near 4:3, not stretched thin), and the second is a smaller
- * accent card overlapping its bottom-left corner — a bordered, shadowed
- * card floating on top, distinct from the plain full-bleed treatment used
- * everywhere else, since this is the one section where a small design
- * flourish doesn't fight an existing layout it needs to match. Mobile
- * drops the overlap (it only reads as intentional with room to breathe)
- * and simply stacks both photos edge-to-edge below the text.
- */
 export default function OurOffice() {
   return (
     <section id="office" className="bg-secondary/60">

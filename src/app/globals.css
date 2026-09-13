@@ -1,28 +1,20 @@
 @import "tailwindcss";
 
-/*
-  Theme tokens — Reynolds Rebuild palette.
-  These map to Tailwind utilities automatically (Tailwind v4 "CSS-first config"):
-  --color-primary  -> bg-primary, text-primary, border-primary, etc.
-  --color-accent   -> bg-accent, text-accent, ...
-  Never hand-write a hex value inside a component — add or change a token here instead.
-  This is what the assignment's "reusable themes/colors" checklist item is checking for.
-*/
 @theme {
-  --color-primary: #3f5449; /* Juniper — nav, headings, primary buttons */
-  --color-primary-soft: #e4eae1; /* tint background for primary chips/badges */
-  --color-primary-strong: #263229; /* hover/active state for primary buttons */
+  --color-primary: #3f5449;
+  --color-primary-soft: #e4eae1;
+  --color-primary-strong: #263229;
 
-  --color-secondary: #dcd3c5; /* Stone — section backgrounds, dividers */
+  --color-secondary: #dcd3c5;
   --color-secondary-dark: #b9ac95;
 
-  --color-accent: #c97b63; /* Clay — CTAs and small accents only, use sparingly */
+  --color-accent: #c97b63;
   --color-accent-strong: #a85f49;
 
-  --color-base: #faf8f3; /* page background */
-  --color-surface: #ffffff; /* cards */
-  --color-ink: #23261f; /* body text */
-  --color-ink-muted: #5b5f52; /* secondary text */
+  --color-base: #faf8f3;
+  --color-surface: #ffffff;
+  --color-ink: #23261f;
+  --color-ink-muted: #5b5f52;
   --color-border: #e4ded0;
 
   --font-display: var(--font-fraunces);
