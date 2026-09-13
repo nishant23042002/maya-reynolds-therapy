@@ -2,40 +2,55 @@ import Image from "next/image";
 import { mission } from "@/lib/content";
 
 /**
- * Real layout, not a guess — inspected via devtools on
- * conejovalleycounseling.com's "You're holding onto hope..." section
- * (absolute-positioned Fluid Engine blocks, canvas ≈1780px @ ≈1795px
- * viewport — coordinates below are read straight off getBoundingClientRect()):
+ * Real measurements, pulled from conejovalleycounseling.com's live DOM at
+ * two viewport widths (1425px and 1920px) — and confirmed as true `vmax`
+ * (max of viewport width/height), not `vw`: swapping width and height at
+ * the same magnitude (1425×900 vs 900×1425) left the section's own padding
+ * pixel-for-pixel identical, which only happens if it's keyed to
+ * `max(vw, vh)` rather than width alone. Same Fluid Engine full-bleed
+ * pattern as Hero/Navbar (no max-width cap), just with its own numbers:
+ *   - Section padding: 7vmax top/bottom (`calc(70vmax / 10)` in their CSS)
+ *   - Text block starts at 8.75vmax from the left; the H2 itself wraps at
+ *     ~47.7vmax; the two paragraphs below it sit in a 2-column row, each
+ *     25.1vmax wide, with a FIXED 20px gap between them (confirmed fixed,
+ *     not vmax — identical in raw px at both widths tested, unlike
+ *     everything else here) — `gap-x-5` is exactly 20px, no arbitrary value
+ *     needed
+ *   - Gap between the H2 and the paragraph row: ~3.3vmax (`gap-y-[3.3vmax]`
+ *     on the grid, rather than a margin on either row)
+ *   - Portrait: bled to the right edge, 30.1vmax wide
+ *   - Mobile (≤767px, same breakpoint as Hero): everything full width with
+ *     a 6vw inset, but the ORIGINAL REORDERS content — heading, then the
+ *     first paragraph, then the photo, THEN the second paragraph
+ *     (`order-2`/`order-4` on the two paragraphs specifically, not both the
+ *     same, so the `order-3` photo lands between them)
  *
- *   - H2 block:        top 1200, height 172  → bottom edge 1372
- *   - Paragraph row:   top 1429              → gap under H2 is ~57px,
- *     noticeably more generous than a default Tailwind `mb-8` (32px)
- *   - Two paragraph blocks sit side by side with only a ~20px gap between
- *     them (`gap-6` / 24px is already a close match, left as-is)
- *   - Portrait block:  543×721 → aspect ratio ≈0.75 (tall portrait)
- *   - Section padding: computed `.content-wrapper` padding is ~125.7px,
- *     i.e. very close to Tailwind's `py-32` (128px) on desktop
- *   - Desktop split is roughly 48/52, text column left, portrait right
- *   - Body copy line-height is close to 1.8× the font size — noticeably
- *     airier than Tailwind's default `leading-relaxed` (1.625)
- *
- * Exact canvas pixels don't map 1:1 onto a responsive Tailwind rebuild
- * (Fluid Engine scales its whole canvas, not individual elements), so the
- * values above are recreated as proportions/spacing scale, not copied
- * literally — see the Reynolds Rebuild plan.
- *
- * Portrait sizing: matching the photo's own 2:3 ratio exactly (1024×1536)
- * left the box too tall/narrow at desktop widths — it read as stretched
- * rather than composed. The container instead uses the original's own
- * measured ratio (543/721 ≈ 3:4), a normal headshot-card proportion, with
- * `object-top` so `object-cover` crops from the BOTTOM of the photo only
- * (torso/background) — the face and shoulders at the top of the frame stay
- * fully visible at every breakpoint.
- *
- * Mobile: original's Squarespace mobile layout isn't worth reverse
- * engineering pixel-by-pixel since you're rebuilding in Tailwind's own
- * responsive system — stacking to one column (image below the two
- * paragraphs, which themselves stack) is the sensible equivalent.
+ * Two departures from a literal copy of those measurements, both fixes for
+ * real problems rather than reference-matching:
+ *   - The reference stretches its photo to match the TEXT block's own
+ *     height exactly (confirmed: top aligns with the H2, bottom sits a
+ *     fixed gap above the text's own bottom). That works for their landscape
+ *     beach photo at any crop ratio, but Maya's photo is a portrait
+ *     headshot — with her short bio, the text block is barely a few hundred
+ *     pixels tall, and stretching a headshot into that wide/short frame
+ *     with `object-top` cropped down to just hair. Fixed with a
+ *     `md:min-h-[40vmax]` floor on the shared wrapper (≈ a 3:4 ratio at the
+ *     photo's own 30.1vmax width) — the photo still stretches to match
+ *     whatever the wrapper resolves to via `inset-y-0`, but now that's
+ *     never shorter than a normal portrait crop. The text grid is
+ *     vertically centered against that same floor via `flex items-center`
+ *     on the wrapper — NOT `h-full` + `content-center` on the grid itself,
+ *     which was the first attempt and silently failed: percentage heights
+ *     don't reliably resolve against a parent whose height comes only from
+ *     `min-height` (no explicit `height`), so the grid stayed pinned to the
+ *     top at its own natural height with all the slack space left below it
+ *     (confirmed via devtools — 0px gap above the text, 500px+ below at a
+ *     1920×1080 test). Flexbox `align-items` centers a child by its actual
+ *     box regardless of that limitation, which is why it's used instead.
+ *   - Section fills the full remaining viewport height below the header
+ *     (`min-h-[calc(100vh-115px)]`, matching Hero's treatment — see
+ *     Hero.tsx), content centered. `md:` only, same as Hero, so mobile
+ *     keeps its natural content height.
  *
  * This doubles as the "About" section — the nav's #about anchor points
  * here, so Maya's headshot is the portrait.
@@ -43,31 +58,56 @@ import { mission } from "@/lib/content";
 export default function MissionIntro() {
   return (
     <section id="about" className="bg-base">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-2 md:items-start md:gap-14 md:py-32">
-        <div>
-          <h2 className="mb-12 max-w-md font-display text-3xl font-light leading-tight text-ink md:mb-14 md:text-4xl">
-            {mission.introLine}
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+      <div className="px-6 py-16 md:flex md:min-h-[calc(100vh-115px)] md:flex-col md:justify-center md:px-0 md:py-[7vmax]">
+        <div className="md:relative md:flex md:min-h-[40vmax] md:items-center">
+          {/* Portrait — desktop only, bled to the right edge, stretches to
+              match the wrapper's height (floor of 40vmax, or the text
+              block's own height if that ends up taller) */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[30.1vmax] md:block">
+            <Image
+              src={mission.portrait.src}
+              alt={mission.portrait.alt}
+              fill
+              sizes="31vmax"
+              className="object-cover object-top"
+            />
+          </div>
+
+          {/* Text block — normal flow, defines the wrapper's height above
+              its min-height floor. Grid + `order` so mobile can stack in
+              the original's actual order (heading, para 1, photo, para 2)
+              while desktop lays the two paragraphs side by side under a
+              full-width heading, vertically centered against the photo. */}
+          <div className="grid grid-cols-1 gap-8 md:ml-[8.75vmax] md:mr-[33vmax] md:grid-cols-2 md:gap-x-5 md:gap-y-[3.3vmax]">
+            <h2 className="order-1 max-w-md font-display text-3xl font-light leading-tight text-ink md:order-none md:col-span-2 md:max-w-[47.7vmax] md:text-4xl">
+              {mission.introLine}
+            </h2>
             {mission.paragraphs.map((p, i) => (
-              <p key={i} className="text-[15px] leading-[1.8] text-ink-muted">
-                {p.lead && <strong className="text-ink">{p.lead} </strong>}
+              <p
+                key={i}
+                className={`${i === 0 ? "order-2" : "order-4"} text-[15px] leading-[1.8] text-ink-muted md:order-none`}
+              >
+                {p.lead && (
+                  <strong className="mb-2 block text-xs uppercase tracking-wide text-ink">
+                    {p.lead}
+                  </strong>
+                )}
                 {p.rest}
               </p>
             ))}
+
+            {/* Portrait — mobile only, sits between the two paragraphs to
+                match the original's actual content order */}
+            <div className="relative order-3 aspect-[3/4] w-full overflow-hidden rounded-lg md:hidden">
+              <Image
+                src={mission.portrait.src}
+                alt={mission.portrait.alt}
+                fill
+                sizes="100vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
-        </div>
-        {/* aspect-[3/4] mirrors the original's own portrait-card proportion.
-            object-top anchors the crop to the top of the photo, so any
-            cropping happens at the bottom — the face stays fully in frame. */}
-        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
-          <Image
-            src={mission.portrait.src}
-            alt={mission.portrait.alt}
-            fill
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="object-cover object-top"
-          />
         </div>
       </div>
     </section>

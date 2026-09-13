@@ -42,14 +42,20 @@ export const hero = {
 export const mission = {
   eyebrow: "About Dr. Reynolds",
   introLine: "You don't have to keep bracing for what's next.",
+  // Rebalanced so both columns run roughly the same length (the reference's
+  // own two paragraphs are close in length too) — the first draft had a
+  // long bold lead + short second paragraph, which read as lopsided next to
+  // a tall portrait. Lead is short on purpose: styled bold + uppercase in
+  // MissionIntro.tsx to match the original's short caps lead-in, not a
+  // second full sentence.
   paragraphs: [
     {
-      lead: "I'm a licensed clinical psychologist based in Santa Monica, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experience.",
-      rest: "Many of the people I work with are high-achieving and self-aware — but privately exhausted, stuck in overthinking, or emotionally on edge.",
+      lead: "My goal isn't just symptom relief — it's steadier ground.",
+      rest: "I'm a licensed clinical psychologist based in Santa Monica, offering therapy for adults who feel overwhelmed by anxiety, stress, or the lingering effects of past experience. Many of the people I work with are high-achieving and self-aware — but privately exhausted, stuck in overthinking, or emotionally on edge.",
     },
     {
       lead: null as string | null,
-      rest: "I take a warm, collaborative, and grounded approach: sessions structured enough to feel supportive, with space left for real reflection and depth.",
+      rest: "I take a warm, collaborative, and grounded approach: sessions structured enough to feel supportive, with space left for real reflection and depth. Trauma work is paced carefully, with safety and stabilization always coming first — the goal is real insight and a steadier relationship with yourself, not just quieting symptoms.",
     },
   ],
   portrait: { src: "/images/maya-headshot.jpg", alt: "Dr. Maya Reynolds, PsyD" },
